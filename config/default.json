@@ -1,11 +1,11 @@
 {
-  "port": 7300,
+  "port": 9134,
   "pageSize": 30,
   "routerPrefix": {
     "mock": "/mock",
     "api": "/api"
   },
-  "db": "",
+  "db": "mongodb://mocker:youhujiaatmockjs@dds-2zee3720455bb0f42.mongodb.rds.aliyuncs.com:3717,dds-2zee3720455bb0f41.mongodb.rds.aliyuncs.com:3717/MockJS?replicaSet=mgset-4056355",
   "unsplashClientId": "",
   "gravatar": [
     "//img.souche.com/20161230/png/58f22ad636a0f33bad8762688f78d425.png",
@@ -77,6 +77,6 @@
     "timeout": 25000,
     "publicPath": "/dist/",
     "mockPrefix": "/mock/",
-    "APIPrefix": "http://127.0.0.1:7300/api"
+    "APIPrefix": "http://123.56.216.175:9134/api"
   }
 }

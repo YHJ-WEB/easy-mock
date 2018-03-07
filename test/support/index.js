@@ -54,7 +54,7 @@ exports.cp = function (token) {
       name: 'project',
       url: '/project',
       description: '我是描述',
-      swagger_url: 'http://127.0.0.1:7400'
+      swagger_url: 'http://123.56.216.175:7400'
     }, body)
     return exports.r('post', '/project/create', token, newBody)
   }

@@ -77,7 +77,7 @@ $ cd easy-mock && npm install
   },
   "fe": {
     "publicPath": "/dist/",
-    "APIPrefix": "http://127.0.0.1:7300/api",
+    "APIPrefix": "http://123.56.216.175:9134/api",
     "storageNamespace": "cookies & localStorage 的命名空间。"
   }
 }
@@ -98,7 +98,7 @@ $ cd easy-mock && npm install
 
 ```sh
 $ npm run dev
-# 访问 http://127.0.0.1:7300
+# 访问 http://123.56.216.175:9134
 ```
 
 ## 更多命令

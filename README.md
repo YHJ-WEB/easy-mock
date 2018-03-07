@@ -87,7 +87,7 @@ configuration.
   },
   "fe": {
     "publicPath": "/dist/",
-    "APIPrefix": "http://127.0.0.1:7300/api",
+    "APIPrefix": "http://123.56.216.175:9134/api",
     "storageNamespace": "cookies & localStorage namespace"
   }
 }
@@ -111,7 +111,7 @@ If you leave `unsplashClientId` blank, the background will be provided by Bing.
 
 ```sh
 $ npm run dev
-# Visit http://127.0.0.1:7300
+# Visit http://123.56.216.175:9134
 ```
 
 ## More Commands

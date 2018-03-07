@@ -66,7 +66,11 @@ exports.list = function * () {
     }, {
       description: keyExp
     }, {
+      serviceName: keyExp
+    }, {
       method: keyExp
+    },  {
+      params: keyExp
     }, {
       mode: keyExp
     }]
@@ -130,6 +134,8 @@ exports.byProjects = function * () {
 exports.create = function * () {
   const mode = this.checkBody('mode').notEmpty().value
   const projectId = this.checkBody('project_id').notEmpty().value
+  const serviceName = this.checkBody('serviceName').notEmpty().value
+  const params = this.checkBody('params').value
   const description = this.checkBody('description').notEmpty().value
   const url = this.checkBody('url').notEmpty()
     .match(/^\/.*$/i, 'URL 必须以 / 开头').value
@@ -166,6 +172,8 @@ exports.create = function * () {
   yield mockProxy.newAndSave({
     project: projectId,
     description,
+    params,
+    serviceName,
     method,
     url,
     mode
@@ -179,6 +187,8 @@ exports.update = function * () {
   const id = this.checkBody('id').notEmpty().value
   const mode = this.checkBody('mode').value
   const description = this.checkBody('description').value
+  const params = this.checkBody('params').value
+  const serviceName = this.checkBody('serviceName').value
   const url = this.checkBody('url').empty()
     .match(/^\/.*$/i, 'URL 必须以 / 开头').value
   const method = this.checkBody('method').empty().toLow().in([
@@ -210,6 +220,8 @@ exports.update = function * () {
   // 更新属性
   mock.url = url || mock.url
   mock.mode = mode || mock.mode
+  mock.params = params || mock.params
+  mock.serviceName = serviceName || mock.serviceName
   mock.method = method || mock.method
   mock.description = description || mock.description
 
@@ -218,6 +230,8 @@ exports.update = function * () {
     _id: { $ne: mock.id },
     project: project.id,
     url: mock.url,
+    params: mock.params,
+    serviceName: mock.serviceName,
     method: mock.method
   })
 
@@ -225,7 +239,7 @@ exports.update = function * () {
     this.body = this.util.refail('更新失败，已存在相同 Mock')
     return
   }
-
+  console.log(mock)
   yield mockProxy.updateById(mock)
 
   this.body = this.util.resuccess()
