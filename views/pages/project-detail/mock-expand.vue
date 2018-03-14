@@ -2,6 +2,8 @@
   <div class="em-mock-expand">
     <h2>serviceName</h2>
     <p>{{mock.serviceName}}</p>
+    <h2>protoName</h2>
+    <p>{{mock.protoName}}</p>
     <h2>Method</h2>
     <p>{{mock.method}}</p>
     <h2>URL</h2>

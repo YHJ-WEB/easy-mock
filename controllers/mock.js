@@ -68,8 +68,10 @@ exports.list = function * () {
     }, {
       serviceName: keyExp
     }, {
+      protoName: keyExp
+    }, {
       method: keyExp
-    },  {
+    }, {
       params: keyExp
     }, {
       mode: keyExp
@@ -135,6 +137,7 @@ exports.create = function * () {
   const mode = this.checkBody('mode').notEmpty().value
   const projectId = this.checkBody('project_id').notEmpty().value
   const serviceName = this.checkBody('serviceName').notEmpty().value
+  const protoName = this.checkBody('protoName').value
   const params = this.checkBody('params').value
   const description = this.checkBody('description').notEmpty().value
   const url = this.checkBody('url').notEmpty()
@@ -174,6 +177,7 @@ exports.create = function * () {
     description,
     params,
     serviceName,
+    protoName,
     method,
     url,
     mode
@@ -189,6 +193,7 @@ exports.update = function * () {
   const description = this.checkBody('description').value
   const params = this.checkBody('params').value
   const serviceName = this.checkBody('serviceName').value
+  const protoName = this.checkBody('protoName').value
   const url = this.checkBody('url').empty()
     .match(/^\/.*$/i, 'URL 必须以 / 开头').value
   const method = this.checkBody('method').empty().toLow().in([
@@ -222,6 +227,7 @@ exports.update = function * () {
   mock.mode = mode || mock.mode
   mock.params = params || mock.params
   mock.serviceName = serviceName || mock.serviceName
+  mock.protoName = protoName || mock.protoName
   mock.method = method || mock.method
   mock.description = description || mock.description
 
@@ -232,6 +238,7 @@ exports.update = function * () {
     url: mock.url,
     params: mock.params,
     serviceName: mock.serviceName,
+    protoName: mock.protoName,
     method: mock.method
   })
 

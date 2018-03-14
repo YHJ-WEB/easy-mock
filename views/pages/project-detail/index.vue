@@ -219,7 +219,7 @@ export default {
       const reg = this.keywords && new RegExp(this.keywords, 'i')
       return reg
         ? list.filter(item => (
-          reg.test(item.name) || reg.test(item.url) || reg.test(item.method) || reg.test(item.serviceName)
+          reg.test(item.name) || reg.test(item.url) || reg.test(item.method) || reg.test(item.serviceName) || reg.test(item.protoName)
         ))
         : list
     },

@@ -15,6 +15,7 @@ const schema = new Schema({
   method: String,
   params: String,
   serviceName: String,
+  protoName: String,
   parameters: String,
   response_model: String,
   create_at: {

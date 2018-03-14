@@ -15,6 +15,11 @@
                   <!--<span slot="prepend">/</span>-->
                 </i-input>
               </Form-item>
+              <Form-item label="protoName">
+                <i-input v-model="temp.protoName">
+                  <!--<span slot="prepend">/</span>-->
+                </i-input>
+              </Form-item>
               <Form-item label="Method">
                 <i-select v-model="temp.method">
                   <Option v-for="item in methods" :value="item.value" :key="item.value">{{ item.label }}</Option>
@@ -136,6 +141,7 @@ export default {
         mode: '',
         method: '',
         serviceName: '',
+        protoName: '',
         params: '',
         // params: [
         //   {
@@ -176,6 +182,7 @@ export default {
           this.temp.mode = this.value.mode
           this.temp.method = this.value.method
           this.temp.serviceName = this.value.serviceName
+          this.temp.protoName = this.value.protoName
           this.temp.description = this.value.description
           this.temp.params = this.value.params
           this.codeEditor.setValue(this.temp.mode)
@@ -184,6 +191,7 @@ export default {
           this.temp.mode = '{"data": {}}'
           this.temp.method = 'get'
           this.temp.serviceName = ''
+          this.temp.protoName = ''
           this.temp.description = ''
           this.temp.params = ''
           // this.temp.params = '[{key: "",value: "",index: 1,status: 1}]'
@@ -278,6 +286,7 @@ export default {
             this.value.mode = this.temp.mode
             this.value.method = this.temp.method
             this.value.serviceName = this.temp.serviceName
+            this.value.protoName = this.temp.protoName
             this.value.description = this.temp.description
             if (this.autoClose) this.close()
           }
