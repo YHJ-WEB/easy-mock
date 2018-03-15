@@ -87,7 +87,7 @@ configuration.
   },
   "fe": {
     "publicPath": "/dist/",
-    "APIPrefix": "http://123.56.216.175:9134/api",
+    "APIPrefix": "http://mock.youhujia.com/api",
     "storageNamespace": "cookies & localStorage namespace"
   }
 }
@@ -111,7 +111,7 @@ If you leave `unsplashClientId` blank, the background will be provided by Bing.
 
 ```sh
 $ npm run dev
-# Visit http://123.56.216.175:9134
+# Visit http://mock.youhujia.com
 ```
 
 ## More Commands
