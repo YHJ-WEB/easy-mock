@@ -26,7 +26,7 @@ function createMock (projectId, swaggerDocs) {
         const operation = paths[url][method]
         const desc = operation.summary || operation.description
         const serviceName = operation.operationId || ''
-        const api = _.find(apis, { method, url: fullAPIPath })
+        const api = _.find(apis, { method, serviceName: serviceName })
         const mode = _.get(operation, 'responses["200"].example') || _.get(operation, 'responses["default"].example') || '{}'
         let responseModel, parameters
 
